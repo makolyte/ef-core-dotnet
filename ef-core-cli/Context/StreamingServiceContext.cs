@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ef_core_cli.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ef_core_cli.Context
 {
@@ -13,5 +14,6 @@ namespace ef_core_cli.Context
         {
             optionsBuilder.UseSqlServer(ConnectionString);
         }
+        public DbSet<Movie> Movies { get; set; }
     }
 }
