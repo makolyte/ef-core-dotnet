@@ -9,7 +9,7 @@ using ef_core_cli.Context;
 namespace ef_core_cli.Migrations
 {
     [DbContext(typeof(StreamingServiceContext))]
-    [Migration("20210314124406_Database_v0")]
+    [Migration("20210314133726_Database_v0")]
     partial class Database_v0
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

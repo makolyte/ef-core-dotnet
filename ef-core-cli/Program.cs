@@ -1,9 +1,11 @@
 ﻿using System;
+using ef_core_cli.Context;
+using ef_core_cli.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace ef_core_cli
 {
-    using Microsoft.Extensions.Configuration;
-
     class Program
     {
         static void Main(string[] args)
@@ -15,9 +17,19 @@ namespace ef_core_cli
                 .Build();
 
 
-            var connectionString = config.GetConnectionString("Default");
+            using (var context = new StreamingServiceContext(config.GetConnectionString("Default")))
+            {
+                context.Database.Migrate();
 
-            Console.WriteLine(connectionString);
+                context.Add(new Movie 
+                { 
+                   Name = "John Wick",
+                   Description = "A revenge-seeking assassin goes after EVERYONE",
+                   ReleaseYear = 2014,
+                   RuntimeMinutes = 101
+                });
+                context.SaveChanges();
+            }
         }
     }
 }
