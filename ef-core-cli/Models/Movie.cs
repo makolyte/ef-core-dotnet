@@ -11,21 +11,17 @@ namespace ef_core_cli.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(maximumLength: 250, MinimumLength = 1)]
+        [MaxLength(500)]
         public string Name { get; set; }
 
         [Required]
-        [Range(1888, 9999)]
         public int ReleaseYear { get; set; }
 
         [Required]
-        [StringLength(maximumLength: 500, MinimumLength = 1)]
+        [MaxLength(500)]
         public string Description { get; set; }
 
         [Required]
-        [Range(0, 300)]
         public int RuntimeMinutes { get; set; }
-        
-
     }
 }

@@ -9,8 +9,8 @@ using ef_core_cli.Context;
 namespace ef_core_cli.Migrations
 {
     [DbContext(typeof(StreamingServiceContext))]
-    [Migration("20210313145614_Database_v1.0")]
-    partial class Database_v10
+    [Migration("20210314124406_Database_v0")]
+    partial class Database_v0
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,8 +34,8 @@ namespace ef_core_cli.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<int>("ReleaseYear")
                         .HasColumnType("int");
